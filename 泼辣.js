@@ -5,7 +5,7 @@ Polarr泼辣修图 解锁特权 (需登陆)
 QuantumultX:
 
 [rewrite_local]
-^https:\/\/api\.polaxiong\.com\/v1\/payments\/(appleiap\/receipts\/confirmation|profiles\/@me\/subscription) url script-response-body https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Polarr.js
+^https:\/\/api\.polaxiong\.com\/v1\/payments\/(appleiap\/receipts\/confirmation|profiles\/@me\/subscription) url script-response-body https://github.com/wflove520/qx/blob/main/%E6%B3%BC%E8%BE%A3.js
 
 [mitm]
 hostname = api.polaxiong.com
