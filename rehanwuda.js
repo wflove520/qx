@@ -11,7 +11,7 @@ hostname = dancefit.dailyyogac.com
 var url = $request.url;
 var body = $response.body;
 
-if (/^https?://dancefit.dailyyogac.com/dancefit/user/common/info("?.*)?$/.test(url)) {
+if ($response.body && $request.url.includes("user/common/@me/info?")) {
     let obj = JSON.parse($response.body);
     obj.result.is_first_buy = true;
     obj.result.member_duration.is_valid = true;
@@ -26,7 +26,7 @@ if (/^https?://dancefit.dailyyogac.com/dancefit/user/common/info("?.*)?$/.test(u
     obj.result.member_duration.end_time = 9999191919;
     obj.result.login_type = 3;
     $done({ body: JSON.stringify(obj) });
-} else if (/^https?://dancefit.dailyyogac.com/dancefit/user/obprogram/detail("?.*)?$/.test(url)) {
+} else if ($response.body && $request.url.includes("user/obprogram/detail?")) {
     let obj = JSON.parse($response.body);
     obj.result.is_vip = true;
     $done({ body: JSON.stringify(obj) });
