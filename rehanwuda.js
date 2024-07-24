@@ -1,6 +1,7 @@
 [rewrite_local]
 
-^https?://dancefit.dailyyogac.com/dancefit url script-response-body https://github.com/wflove520/qx/raw/main/rehanwudao.js
+^https?://dancefit.dailyyogac.com/dancefit/user/common/info?.* url script-response-body https://github.com/wflove520/qx/raw/main/rehanwudao.js
+^https?://dancefit.dailyyogac.com/dancefit/user/obprogram/detail?.* url script-response-body https://github.com/wflove520/qx/raw/main/rehanwudao.js
 
 [mitm]
 hostname = dancefit.dailyyogac.com
@@ -8,7 +9,7 @@ hostname = dancefit.dailyyogac.com
 var url = $request.url;
 var body = $response.body;
 
-if (/^https?://dancefit.dailyyogac.com/dancefit/user/common/info"?.*/.test(url)) {
+if (/^https?:\/\/dancefit\.dailyyogac\.com\/dancefit\/user\/common\/info?.*/.test(url)) {
     let obj = JSON.parse($response.body);
     obj.result.is_first_buy = true;
     obj.result.member_duration.is_valid = true;
@@ -26,7 +27,11 @@ if (/^https?://dancefit.dailyyogac.com/dancefit/user/common/info"?.*/.test(url))
     obj.result.login_type = 3;
     //obj.result.permanently_vip = 3;
     $done({ body: JSON.stringify(obj) });
-} else if (/^https?://dancefit.dailyyogac.com/dancefit"?.*/.test(url)) {
+} else if (/^https?:\/\/dancefit\.dailyyogac\.com\/dancefit\/user\/obprogram\/detail?.*/.test(url)) {
+    let obj = JSON.parse($response.body);
+    obj.result.is_vip = true;
+    $done({ body: JSON.stringify(obj) });
+} else if (/^https?:\/\/dancefit\.dailyyogac\.com\/.*.*/.test(url)) {
     //vip权限
     body = body.replace(/is_vip":true/g, 'is_vip":false');
 }
