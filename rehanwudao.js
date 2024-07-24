@@ -31,6 +31,6 @@ obj.result.login_type = 3;
 $done({ body: JSON.stringify(obj) });
 } else if (url.indexOf("dancefit") != -1) {
    //vip权限
-    body = body.replace(/is_vip":false/g, 'is_vip":true');
+    body = body.replace(/is_vip":true/g, 'is_vip":false');
 }
 $done({ body });
