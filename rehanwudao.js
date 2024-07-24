@@ -3,7 +3,7 @@
 [rewrite_local]
 
 
-http://dancefit.dailyyogac.com/dancefit url script-response-body https://raw.githubusercontent.com/Yu9191/Rewrite/main/rehanwudao.js
+http://dancefit.dailyyogac.com/dancefit url script-response-body https://github.com/wflove520/qx/blob/main/rehanwudao.js
 
 
 
@@ -31,6 +31,6 @@ obj.result.login_type = 3;
 $done({ body: JSON.stringify(obj) });
 } else if (url.indexOf("dancefit") != -1) {
    //vip权限
-    body = body.replace(/is_vip":true/g, 'is_vip":false');
+    body = body.replace(/is_vip":false/g, 'is_vip":true');
 }
 $done({ body });
