@@ -3,7 +3,7 @@
 [rewrite_local]
 
 
-http://dancefit.dailyyogac.com/dancefit url script-response-body https://github.com/wflove520/qx/blob/main/rehanwudao.js
+http://dancefit.dailyyogac.com/dancefit url script-response-body https://github.com/wflove520/qx/raw/main/rehanwudao.js
 
 
 
