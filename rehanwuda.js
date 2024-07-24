@@ -30,7 +30,7 @@ if ($response.body && $request.url.includes("user/common/@me/info?")) {
     let obj = JSON.parse($response.body);
     obj.result.is_vip = true;
     $done({ body: JSON.stringify(obj) });
-} else if (/^https?://dancefit.dailyyogac.com/.*$/.test(url)) {
+} else if ($response.body && $request.url.includes("user/obprogram/detail?")) {
     //vip权限
     body = body.replace(/is_vip":true/g, 'is_vip":false');
 }
